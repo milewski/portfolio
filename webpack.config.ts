@@ -73,7 +73,7 @@ export default env => {
                             options: {
                                 plugins: [
                                     {
-                                        use: require('imagemin-mozjpeg'),
+                                        use: require('imagemin-jpegtran'),
                                         options: {
                                             enabled: env === 'production'
                                         }
