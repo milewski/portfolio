@@ -11,4 +11,4 @@ services:
     ports:
       - 80:80
       - 443:443
-    command: env $(cat .env) server/caddy-linux
+    command: 'env $(cat .env) server/caddy-linux'
