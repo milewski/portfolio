@@ -4,8 +4,8 @@ node_modules
 .DS_Store
 .idea
 *.d.ts
-distribution/**
 .env
 references
-!distribution/robots.txt
-!distribution/humans.txt
+public/**
+!public/robots.txt
+!public/humans.txt

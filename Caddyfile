@@ -1,6 +1,6 @@
-rafael-milewski.com:80 {
-    root distribution
+{$DOMAIN}:{$PORT} {
+    root public
     gzip
     ext .html
-    tls true
+    tls {$TLS}
 }

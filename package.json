@@ -4,13 +4,13 @@
   "description": "My Personal portfolio http://rafael-milewski.com",
   "main": "",
   "scripts": {
-    "build": "tsc && webpack --env production",
-    "serve": "npm run build && cross-os serve"
+    "build": "tsc && webpack",
+    "serve": "cross-os serve"
   },
   "cross-os": {
     "serve": {
-      "darwin": "./server/caddy-darwin",
-      "linux": "./server/caddy-linux",
+      "darwin": "env $(cat .env) ./server/caddy-darwin",
+      "linux": "env $(cat .env) ./server/caddy-linux",
       "win32": "./server/caddy-win.exe"
     }
   },
@@ -44,9 +44,7 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
     "typescript": "^2.2.2",
-    "webpack": "^2.4.1"
-  },
-  "dependencies": {
+    "webpack": "^2.4.1",
     "imagemin-jpegtran": "^5.0.2"
   }
 }

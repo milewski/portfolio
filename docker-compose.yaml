@@ -3,11 +3,12 @@ version: '3'
 services:
 
   server:
-    image: ubuntu
+    image: ubuntu:latest
     container_name: portfolio
     volumes:
       - .:/home
     working_dir: /home
     ports:
       - 80:80
-    command: server/caddy-linux
+      - 443:443
+    command: env $(cat .env) server/caddy-linux

@@ -11,7 +11,9 @@ const context = path.resolve(__dirname, 'source')
 
 dot.load({ path: '.env' });
 
-export default env => {
+const { DOMAIN, PORT, NODE_ENV } = process.env
+
+export default () => {
 
     return {
         context: context,
@@ -20,8 +22,8 @@ export default env => {
             'css/app': './sass/main.scss',
         },
         output: {
-            publicPath: url.format(process.env.DOMAIN),
-            path: path.resolve(context, '..', 'distribution'),
+            publicPath: url.format(url.parse(`${DOMAIN}:${PORT}`)),
+            path: path.resolve(context, '..', 'public'),
             filename: '[name].js?[hash]'
         },
         module: {
@@ -53,7 +55,7 @@ export default env => {
                             { loader: 'css-loader', options: { minimize: true, importLoaders: 1 } },
                             { loader: 'postcss-loader', options: require('./postscss').options },
                             { loader: 'resolve-url-loader' },
-                            { loader: 'sass-loader', query: { sourceMap: true } }
+                            { loader: 'sass-loader', options: { sourceMap: true } }
                         ]
                     })
                 },
@@ -75,13 +77,13 @@ export default env => {
                                     {
                                         use: require('imagemin-jpegtran'),
                                         options: {
-                                            enabled: env === 'production'
+                                            enabled: NODE_ENV === 'production'
                                         }
                                     },
                                     {
                                         use: require('imagemin-pngquant'),
                                         options: {
-                                            enabled: env === 'production',
+                                            enabled: NODE_ENV === 'production',
                                             quality: '40-50',
                                             speed: 4
                                         }
@@ -96,7 +98,7 @@ export default env => {
                     test: /\.handlebars$/,
                     loader: 'handlebars-loader',
                     query: {
-                        inlineRequires: '/(images)/',
+                        inlineRequires: /(images)/,
                         helperDirs: [path.resolve(context, 'views/helpers')],
                         partialDirs: [path.resolve(context, 'views/partials')]
                     }
@@ -105,7 +107,7 @@ export default env => {
             ]
         },
         plugins: [
-            new CleanWebpackPlugin(['distribution'], {
+            new CleanWebpackPlugin(['public'], {
                 root: path.resolve(context, '..'),
                 verbose: true,
                 dry: false,
@@ -115,13 +117,7 @@ export default env => {
                 template: 'views/index.handlebars',
                 language: 'english',
                 env: process.env,
-                excludeAssets: [/css\/?.*\.js?\?.*/],
-                minify: {
-                    removeComments: true,
-                    removeRedundantAttributes: true,
-                    removeEmptyAttributes: true,
-                    collapseWhitespace: true
-                }
+                excludeAssets: [/css\/?.*\.js?\?.*/]
             }),
             new HtmlWebpackExcludeAssetsPlugin(),
             new ExtractTextPlugin({
