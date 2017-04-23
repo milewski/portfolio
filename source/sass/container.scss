@@ -1,0 +1,10 @@
+@include component(container) {
+
+  width: 70%;
+  margin: 2em auto 10em;
+
+  & > h1 {
+    margin-bottom: 1em;
+  }
+
+}

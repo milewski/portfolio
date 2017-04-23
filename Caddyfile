@@ -1,0 +1,6 @@
+localhost:8300 {
+    root distribution
+    gzip
+    ext .html
+    tls true
+}

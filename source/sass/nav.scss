@@ -1,0 +1,37 @@
+@include component(nav) {
+  padding: 3em 3em 0;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+
+  @include part(item) {
+
+    display: inline-block;
+    padding: 1em;
+
+    a {
+      color: $primary;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        color: darken($primary, 10);
+        border-bottom: 1px dashed $primary;
+        padding-bottom: .3em;
+      }
+
+    }
+
+    @include option(white) {
+      a {
+        color: $white;
+        &:hover {
+          color: red;
+          border-bottom: 1px dashed transparent;
+        }
+      }
+    }
+
+  }
+
+}

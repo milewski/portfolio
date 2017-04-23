@@ -1,0 +1,49 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "My Personal portfolio http://rafael-milewski.com",
+  "main": "",
+  "scripts": {
+    "build": "tsc && webpack --env production",
+    "serve": "npm run build && cross-os serve"
+  },
+  "cross-os": {
+    "serve": {
+      "darwin": "./server/caddy-darwin",
+      "linux": "./server/caddy-linux",
+      "win32": "./server/caddy-win.exe"
+    }
+  },
+  "author": "Rafael Milewski",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^7.0.13",
+    "autoprefixer": "^6.7.7",
+    "awesome-typescript-loader": "^3.1.2",
+    "clean-webpack-plugin": "^0.1.16",
+    "cross-os": "^1.1.2",
+    "css-loader": "^0.28.0",
+    "csstyle": "^1.5.1",
+    "dotenv": "^4.0.0",
+    "dotenv-utils": "^0.1.5",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "file-loader": "^0.11.1",
+    "handlebars": "^4.0.6",
+    "handlebars-loader": "^1.5.0",
+    "html-webpack-exclude-assets-plugin": "0.0.5",
+    "html-webpack-plugin": "^2.28.0",
+    "image-grid": "^1.0.1",
+    "imagemin-loader": "^1.0.5",
+    "imagemin-mozjpeg": "^6.0.0",
+    "imagemin-pngquant": "^5.0.0",
+    "node-sass": "^4.5.2",
+    "photoswipe": "^4.1.2",
+    "postcss-loader": "^1.3.3",
+    "raf": "^3.3.0",
+    "resolve-url-loader": "^2.0.2",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1"
+  }
+}

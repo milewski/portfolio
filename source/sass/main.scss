@@ -1,0 +1,66 @@
+$black: black;
+$white: white;
+$primary: #d2ff00;
+
+@import "~csstyle/csstyle";
+@import "../fonts/Roboto/stylesheet.css";
+@import "dom";
+@import "nav";
+@import "canvas";
+@import "box";
+@import "container";
+@import "timeline";
+@import "contact";
+@import "portfolio";
+
+@include component(main) {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+
+  flex-wrap: wrap;
+  text-align: center;
+  height: 100%;
+
+  @include part(links) {
+
+    position: relative;
+    z-index: 100;
+    margin-top: 10%;
+    pointer-events: auto;
+
+    img {
+
+      padding: 0 .3em;
+
+      position: relative;
+      width: 3em;
+      transition: transform .1s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+    }
+
+  }
+
+  @include part(description) {
+    margin-top: 3em;
+
+    h3 {
+      font-size: 1.4em;
+    }
+  }
+
+  @include part(me) {
+    img {
+    }
+  }
+
+}

@@ -1,0 +1,13 @@
+version: 3
+
+services:
+
+  server:
+    image: ubuntu
+    container_name: portfolio
+    volumes:
+      - .:/home
+    working_dir: /home
+    ports:
+      - 80:80
+    command: server/caddy-linux
