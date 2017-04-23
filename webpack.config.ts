@@ -11,7 +11,7 @@ const context = path.resolve(__dirname, 'source')
 
 dot.load({ path: '.env' });
 
-const { DOMAIN, PORT, NODE_ENV } = process.env
+const { DOMAIN, PORT, TLS, NODE_ENV } = process.env
 
 export default () => {
 
@@ -22,7 +22,7 @@ export default () => {
             'css/app': './sass/main.scss',
         },
         output: {
-            publicPath: url.format(url.parse(`${DOMAIN}${(PORT ? ':' + PORT : '')}`)),
+            publicPath: url.format(url.parse(`http${TLS !== 'off' ? 's' : ''}://${DOMAIN}${(PORT ? ':' + PORT : '')}`)),
             path: path.resolve(context, '..', 'public'),
             filename: '[name].js?[hash]'
         },
