@@ -22,7 +22,7 @@ export default () => {
             'css/app': './sass/main.scss',
         },
         output: {
-            publicPath: url.format(url.parse(`${DOMAIN}:${PORT}`)),
+            publicPath: url.format(url.parse(`${DOMAIN}${(PORT ? ':' + PORT : '')}`)),
             path: path.resolve(context, '..', 'public'),
             filename: '[name].js?[hash]'
         },
