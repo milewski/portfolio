@@ -1,4 +1,4 @@
-localhost:8300 {
+rafael-milewski.com:80 {
     root distribution
     gzip
     ext .html
