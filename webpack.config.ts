@@ -114,7 +114,7 @@ export default env => {
             new HtmlWebpackPlugin({
                 template: 'views/index.handlebars',
                 language: 'english',
-                env: env,
+                env: process.env,
                 excludeAssets: [/css\/?.*\.js?\?.*/],
                 minify: {
                     removeComments: true,
