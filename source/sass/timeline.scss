@@ -79,6 +79,7 @@
   @include part(description) {
     line-height: 2em;
     @include breakpoint($mobile) {
+      width: 100%;
       padding-top: 1em;
       line-height: 1.4em;
     }
