@@ -23,6 +23,13 @@
       position: relative;
       border-bottom: 1px dashed $primary;
 
+      @include breakpoint($mobile) {
+        //display: block;
+        //flex-direction: column;
+        align-content: center;
+        flex-wrap: wrap;
+      }
+
       &:before, &:after {
         content: '';
         display: block;
@@ -45,6 +52,9 @@
 
       & > div {
         margin-right: 10em;
+        @include breakpoint($mobile) {
+          margin: 0;
+        }
       }
 
     }
@@ -52,6 +62,9 @@
 
   @include part(item) {
     width: 18em;
+    @include breakpoint($mobile) {
+      width: 100%;
+    }
   }
 
   @include part(company) {
@@ -65,10 +78,17 @@
 
   @include part(description) {
     line-height: 2em;
+    @include breakpoint($mobile) {
+      padding-top: 1em;
+      line-height: 1.4em;
+    }
   }
 
   @include part(role) {
     font-size: 1.6em;
+    @include breakpoint($mobile) {
+      font-size: 1.2em;
+    }
   }
 
   @include part(link) {

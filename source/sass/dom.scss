@@ -13,8 +13,14 @@ h1, h2, h3 {
 }
 
 h1 {
+
   font-size: 4em;
   font-weight: bold;
+
+  @include breakpoint($mobile) {
+    font-size: 2em;
+  }
+
 }
 
 h2, h3 {

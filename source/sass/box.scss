@@ -1,13 +1,30 @@
 @include component(box) {
   border: 1px solid $white;
   border-radius: 1em;
-  padding: 2em 0 ;
+  padding: 2em 0;
   text-align: center;
   width: 70%;
   margin: 0 auto 15em;
+  position: relative;
+  z-index: 10;
 
   h2 {
     font-size: 2em;
+  }
+
+  span {
+    color: $primary;
+  }
+
+  @include breakpoint($mobile) {
+    display: block;
+    margin: 4em auto;
+    width: 80%;
+    padding: 1em;
+    border-radius: .5em;
+    h2 {
+      font-size: 1.2em;
+    }
   }
 
 }
