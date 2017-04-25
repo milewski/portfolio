@@ -1,11 +1,11 @@
-import * as path from 'path';
-import * as HtmlWebpackPlugin from "html-webpack-plugin";
-import * as CleanWebpackPlugin from "clean-webpack-plugin";
+import * as webpack from 'webpack';
+import * as HtmlWebpackPlugin from 'html-webpack-plugin';
+import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
-import * as dot from "dotenv";
-import * as url from "url";
-
 import * as HtmlWebpackExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
+import * as dot from 'dotenv';
+import * as url from 'url';
+import * as path from 'path';
 
 const context = path.resolve(__dirname, 'source')
 
@@ -28,8 +28,14 @@ export default () => {
         },
         module: {
             rules: [
-                { test: /\.ts$/, loader: 'awesome-typescript-loader' },
-
+                {
+                    test: /\.ts$/,
+                    use: [
+                        { loader: 'babel-loader' },
+                        { loader: 'awesome-typescript-loader' },
+                    ]
+                },
+                { test: /\.js$/, exclude: /node_modules/, use: 'babel-loader' },
                 {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,
                     loader: 'file-loader',
@@ -123,7 +129,8 @@ export default () => {
             new ExtractTextPlugin({
                 filename: '[name].css?[contenthash]',
                 allChunks: true
-            })
+            }),
+            new webpack.optimize.UglifyJsPlugin()
         ]
     }
 }
