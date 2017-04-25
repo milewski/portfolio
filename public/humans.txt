@@ -1,0 +1,11 @@
+/* TEAM */
+	Chef: Rafael Milewski
+	Contact: rafael.milewski [at] gmail.com
+	Github: https://github.com/milewski
+	From: Brazil, São Paulo
+
+/* SITE */
+	Last update: 2017/04/25
+	Language: Chinese / English
+	Doctype: HTML5
+	IDE: PHPStorm, Photoshop, Webpack
