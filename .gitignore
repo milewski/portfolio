@@ -9,3 +9,4 @@ references
 public/**
 !public/robots.txt
 !public/humans.txt
+!public/browserconfig.xml
