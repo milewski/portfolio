@@ -4,6 +4,7 @@ $primary: #d2ff00;
 
 //$mobile: (width 320px 900px) (orientation portrait);
 $mobile: (width 320px 900px);
+$tablet: (width 768px 1024px);
 $csstyle-root-id: portfolio;
 
 @import "~csstyle/csstyle";
@@ -94,6 +95,9 @@ $csstyle-root-id: portfolio;
     img {
       @include breakpoint($mobile) {
         width: 70%;
+      }
+      @include breakpoint($tablet) {
+        width: 60%;
       }
     }
   }

@@ -6,12 +6,20 @@
 
     li:first-child:before {
       background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, $primary 51%, $primary 100%);
+      @include breakpoint($mobile) {
+        background: $primary;
+      }
     }
     li:last-child:before {
       background: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 50%, $primary 51%, $primary 100%);
     }
     li:last-child {
       border-bottom: none;
+      @include breakpoint($mobile) {
+        &:after, &:before {
+          display: none;
+        }
+      }
     }
 
     li {
@@ -23,10 +31,15 @@
       border-bottom: 1px dashed $primary;
 
       @include breakpoint($mobile) {
-        //display: block;
-        //flex-direction: column;
         align-content: center;
         flex-wrap: wrap;
+        border-bottom: 1px solid $primary;
+      }
+
+      @include breakpoint($tablet) {
+        padding: 2em 1em;
+        flex-wrap: inherit;
+        text-align: left;
       }
 
       &:before, &:after {
@@ -41,7 +54,13 @@
         width: 1em;
         height: 1em;
         border-radius: 50%;
-        top: 50%
+        top: 50%;
+        @include breakpoint($mobile) {
+          top: inherit;
+          left: inherit;
+          right: 0;
+          bottom: -.5em;
+        }
       }
 
       &:before {
@@ -49,6 +68,14 @@
         height: 100%;
         width: .1em;
         top: 0;
+        @include breakpoint($mobile) {
+          width: 1em;
+          height: 1em;
+          border-radius: 50%;
+          top: inherit;
+          left: -.5em;
+          bottom: -.5em;
+        }
       }
 
       & > div {
@@ -85,6 +112,10 @@
       width: 100%;
       padding-top: 1em;
       line-height: 1.4em;
+    }
+    @include breakpoint($tablet) {
+      text-align: right;
+      white-space: nowrap;
     }
   }
 

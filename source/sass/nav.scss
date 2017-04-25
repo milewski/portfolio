@@ -28,7 +28,13 @@
         color: $primary;
         opacity: .1;
       }
+    }
 
+    @include breakpoint($tablet) {
+      padding: 1.5em;
+      &:not(:nth-child(n+4)):after {
+        margin-left: 1.5em;
+      }
     }
 
     a {
