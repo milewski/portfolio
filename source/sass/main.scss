@@ -90,6 +90,7 @@ $csstyle-root-id: portfolio;
   }
 
   @include part(me) {
+    width: 100%;
     img {
       @include breakpoint($mobile) {
         width: 100%;
