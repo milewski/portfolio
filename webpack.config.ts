@@ -122,6 +122,7 @@ export default () => {
             new HtmlWebpackPlugin({
                 template: 'views/index.handlebars',
                 language: 'english',
+                favicon: './images/favicon.ico',
                 env: process.env,
                 excludeAssets: [/css\/?.*\.js?\?.*/]
             }),
