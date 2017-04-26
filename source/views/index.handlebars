@@ -2,19 +2,19 @@
 
     <nav class="nav">
         <div class="nav__item">
-            <a href="../images/pdf/resume-english.pdf">resume</a>
+            <a href="../images/pdf/resume-english.pdf">{{ resume }}</a>
         </div>
         <div class="nav__item">
-            <a href="#experience">experience</a>
+            <a href="#experience">{{ experience }}</a>
         </div>
         <div class="nav__item">
-            <a href="#work">work</a>
+            <a href="#work">{{ work }}</a>
         </div>
         <div class="nav__item">
-            <a href="#contact">contact</a>
+            <a href="#contact">{{ contact }}</a>
         </div>
         <div class="nav__item --white +hidden-on-mobile">
-            <a id="clear" href="#">clear</a>
+            <a id="clear" href="#">{{ clear }}</a>
         </div>
     </nav>
 
@@ -23,12 +23,12 @@
     <section class="main">
 
         <div class="main__me">
-            <img src="../images/me.png" alt="me">
+            <img src="../images/me.png" alt="{{ me }}">
         </div>
 
         <div class="main__description">
-            <h1>I’m a Full Stack Developer</h1>
-            <h3>who focuses on writing clean, elegant and maintainable code.</h3>
+            <h1>{{ header }}</h1>
+            <h3>{{ description }}</h3>
         </div>
 
         <div class="main__links">
@@ -46,39 +46,41 @@
     </section>
 
     <section class="box">
-        <h2>Currently working as a <span>Studio Designer</span> & <span>Software Engineer</span> at Skysoul.</h2>
+        <h2>{{{ current-working }}}</h2>
     </section>
 
     <section id="experience" class="container">
 
-        <h1>Experience</h1>
+        <h1>{{ experience }}</h1>
 
         <div class="timeline">
             <ul>
-                <li>
-                    <div class="timeline__item">
-                        <div class="timeline__company">SKYSOUL</div>
-                        <div class="timeline__meta">[2013 - PRESENT] - Shanghai China</div>
-                    </div>
-                    <div class="timeline__description">
-                        <div class="timeline__role">Studio Designer / Senior Developer</div>
-                        <div class="timeline__link">
-                            <a target="_blank" href="http://www.skysoul.com.au">http://www.skysoul.com.au</a>
+                {{#each companies}}
+                    <li>
+                        <div class="timeline__item">
+                            <div class="timeline__company">{{ name }}</div>
+                            <div class="timeline__duration">
+                                <ul>
+                                    <li>{{ until }}</li>
+                                    <li>{{ from }}</li>
+                                </ul>
+                            </div>
+                            <div class="timeline__meta">{{ location }}</div>
                         </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="timeline__item">
-                        <div class="timeline__company">PLANOV</div>
-                        <div class="timeline__meta">[2011 - 2013] - São Paulo Brazil</div>
-                    </div>
-                    <div class="timeline__description">
-                        <div class="timeline__role">Graphic Designer / Web Developer</div>
-                        <div class="timeline__link --strike">
-                            <a href="#">http://www.planov.com.br</a>
+                        <div class="timeline__description">
+                            <div class="timeline__role">
+                                <ul>
+                                    {{#each roles}}
+                                        <li>{{ this }}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <div class="timeline__link {{#if strike }} --strike{{/if}}">
+                                <a target="_blank" href="{{ website }}">{{ website }}</a>
+                            </div>
                         </div>
-                    </div>
-                </li>
+                    </li>
+                {{/each}}
             </ul>
         </div>
 
@@ -86,7 +88,7 @@
 
     <section id="work" class="container --fluid-on-mobile">
 
-        <h1>A few pixels here and there...</h1>
+        <h1>{{ work-header }}</h1>
 
         <ul class="portfolio">
 
@@ -140,15 +142,12 @@
 
     <section id="contact" class="container">
 
-        <h1>Contact me</h1>
+        <h1>{{ contact-me }}</h1>
 
         <div class="contact">
-            I’m always open to <span>new opportunities</span> (full-time, freelance and contract).<br>
-            <span>Email me at</span>
-            <a href="mailto:rafael.milewski@gmail.com">
-                <email>rafael.milewski@gmail.com</email>
-            </a>
-            if you are interested in working together.
+            {{#each contact-description }}
+                {{{ this }}}
+            {{/each}}
         </div>
 
     </section>

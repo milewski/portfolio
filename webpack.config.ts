@@ -4,14 +4,14 @@ import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as HtmlWebpackExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
 import * as dot from 'dotenv';
-import * as url from 'url';
 import * as path from 'path';
+import { parseDomain } from "./helpers";
 
 const context = path.resolve(__dirname, 'source')
 
 dot.load({ path: '.env' });
 
-const { DOMAIN, PORT, TLS, NODE_ENV } = process.env
+const { NODE_ENV } = process.env
 
 export default () => {
 
@@ -22,7 +22,7 @@ export default () => {
             'css/app': './sass/main.scss',
         },
         output: {
-            publicPath: url.format(url.parse(`http${TLS !== 'off' ? 's' : ''}://${DOMAIN}${(PORT ? ':' + PORT : '')}`)),
+            publicPath: parseDomain(process.env),
             path: path.resolve(context, '..', 'public'),
             filename: '[name].js?[hash]'
         },
@@ -40,7 +40,7 @@ export default () => {
                     test: /\.(woff|woff2|eot|ttf|svg)$/,
                     loader: 'file-loader',
                     include: /fonts/,
-                    query: {
+                    options: {
                         name: 'fonts/[name].[ext]'
                     }
                 },
@@ -48,7 +48,7 @@ export default () => {
                 {
                     test: /\.pdf$/,
                     loader: 'file-loader',
-                    query: {
+                    options: {
                         name: 'pdf/[name].[ext]'
                     }
                 },
@@ -72,7 +72,7 @@ export default () => {
                     use: [
                         {
                             loader: 'file-loader',
-                            query: {
+                            options: {
                                 name: 'images/[name].[ext]'
                             }
                         },
@@ -103,7 +103,7 @@ export default () => {
                 {
                     test: /\.handlebars$/,
                     loader: 'handlebars-loader',
-                    query: {
+                    options: {
                         inlineRequires: /(images)/,
                         helperDirs: [path.resolve(context, 'views/helpers')],
                         partialDirs: [path.resolve(context, 'views/partials')]

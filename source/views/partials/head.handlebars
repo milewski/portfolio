@@ -2,7 +2,7 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!--<meta name="description" content="{{ data 'social.description' }}">-->
+    <meta name="description" content="{{ social.description }}">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
@@ -10,9 +10,9 @@
     <meta name="msapplication-TileImage" content="../../images/favicon-assets/favicon-144.png">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="theme-color" content="#000000">
-    <meta name="msvalidate.01" content="{{ env 'BING' }}"/>
+    <meta name="msvalidate.01" content="{{ BING }}"/>
 
-    <title>Rafael Milewski - Full Stack Developer</title>
+    <title>{{ title }}</title>
 
     <link rel="icon" href="../../images/favicon-assets/favicon-16.png" sizes="16x16" type="image/png">
     <link rel="icon" href="../../images/favicon-assets/favicon-32.png" sizes="32x32" type="image/png">
@@ -32,9 +32,9 @@
     <!--<link rel="manifest" href="../../../content/manifest/manifest.english.webmanifest">-->
 
     <!-- Facebook -->
-    <meta property="og:url" content="{{ env 'DOMAIN' }}"/>
-    <!--<meta property="og:title" content="{{ data 'social.title' }}"/>-->
-    <!--<meta property="og:description" content="{{ data 'social.description' }}"/>-->
+    <meta property="og:url" content="{{ DOMAIN }}"/>
+    <meta property="og:title" content="{{ social.title }}"/>
+    <meta property="og:description" content="{{ social.description }}"/>
 
     <meta property="og:image" content="../../images/social-assets/social-facebook-thumb.jpg"/>
     <meta property="og:image:type" content="image/jpeg"/>
@@ -46,6 +46,6 @@
     <meta property="og:image:width" content="600"/>
     <meta property="og:image:height" content="250"/>
 
-    <!--<meta property="social:description" content="{{ data 'social.download-description' }}"/>-->
+    <meta property="social:description" content="{{ social.description }}"/>
 
 </head>

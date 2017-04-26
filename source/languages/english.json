@@ -1,3 +1,50 @@
 {
-
+  "language": "en",
+  "title": "Rafael Milewski - Full Stack Developer",
+  "resume": "resume",
+  "experience": "experience",
+  "work": "work",
+  "contact": "contact",
+  "clear": "clear",
+  "header": "I’m a Full Stack Developer",
+  "description": "who focuses on writing clean, elegant and maintainable code.",
+  "me": "me",
+  "social": {
+    "title": "Rafael Milewski - Personal Portfolio",
+    "description": "I'm a web Frontend/Backend Developer. Check out my latest work :)"
+  },
+  "current-working": "Currently working as a <span>Studio Designer</span> & <span>Software Engineer</span> at Skysoul.",
+  "companies": [
+    {
+      "name": "Skysoul",
+      "location": "Shanghai, China",
+      "from": 2013,
+      "until": "present",
+      "website": "http://www.skysoul.com.au",
+      "roles": [
+        "Studio Designer",
+        "Senior Developer"
+      ]
+    },
+    {
+      "name": "Skysoul",
+      "location": "São Paulo, Brazil",
+      "from": 2011,
+      "until": 2013,
+      "strike": true,
+      "website": "http://www.planov.com.br",
+      "roles": [
+        "Graphic Designer",
+        "Web Developer"
+      ]
+    }
+  ],
+  "work-header": "A few pixels here and there...",
+  "contact-me": "Contact Me",
+  "contact-description": [
+    "I’m always open to <span>new opportunities</span> (full-time, freelance and contract).<br>",
+    "<span>Email me at</span>",
+    "<a href=\"mailto:rafael.milewski@gmail.com\"><email>rafael.milewski@gmail.com</email></a>",
+    "if you are interested in working together."
+  ]
 }

@@ -13,6 +13,7 @@
 
   & > h1 {
     margin-bottom: 1em;
+    text-transform: capitalize;
   }
 
   @include option(fluid-on-mobile){

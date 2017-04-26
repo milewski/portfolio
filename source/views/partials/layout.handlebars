@@ -1,13 +1,20 @@
+{{#pages}}
+
 <!doctype html>
-<html lang="{{ data 'language' }}">
-{{> head title=title }}
+<html lang="{{ language }}">
+
+{{> head }}
+
 <body id="portfolio">
 
 {{> @partial-block }}
 
-{{#if (env 'ANALYTICS_ENABLED') }}
+{{#if ENABLE_ANALYTICS }}
     {{> google }}
 {{/if }}
 
 </body>
+
 </html>
+
+{{/pages}}
