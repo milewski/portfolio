@@ -8,7 +8,7 @@ export default compiler => {
     const DOMAIN = { DOMAIN: parseDomain(env) }
 
     return compiler.fn(
-        Object.assign({}, require(`../../languages/${language}.json`), conform(env, schema), DOMAIN)
+        Object.assign({}, require(`../../languages/${language}.json`), env, conform(env, schema), DOMAIN)
     );
 
 };
