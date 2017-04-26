@@ -117,7 +117,7 @@ export default () => {
                 root: path.resolve(context, '..'),
                 verbose: true,
                 dry: false,
-                exclude: ['humans.txt', 'robots.txt']
+                exclude: ['humans.txt', 'robots.txt', 'browserconfig.xml']
             }),
             new HtmlWebpackPlugin({
                 template: 'views/index.handlebars',
