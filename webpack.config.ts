@@ -65,9 +65,8 @@ export default () => {
                         ]
                     })
                 },
-
                 {
-                    test: /\.(jpg|png|svg)$/,
+                    test: /\.(jpg|png|gif|svg)$/,
                     exclude: /fonts/,
                     use: [
                         {
@@ -99,7 +98,33 @@ export default () => {
                         }
                     ],
                 },
-
+                {
+                    test: function (a, b) {
+                        console.log(a)
+                    },
+                    use: [
+                        {
+                            loader: 'file-loader',
+                            options: {
+                                name: 'images/small/[name]-small.[ext]'
+                            }
+                        },
+                        {
+                            loader: 'bin-exec-loader',
+                            options: {
+                                binary: 'convert',
+                                prefix: '-',
+                                export: false,
+                                emitFile: false,
+                                args: {
+                                    $1: '[input]',
+                                    resize: '[resize]',
+                                    $2: '[output]'
+                                }
+                            }
+                        }
+                    ]
+                },
                 {
                     test: /\.handlebars$/,
                     loader: 'handlebars-loader',
@@ -120,12 +145,21 @@ export default () => {
                 exclude: ['humans.txt', 'robots.txt', 'browserconfig.xml']
             }),
             new HtmlWebpackPlugin({
+                filename: 'index.html',
                 template: 'views/index.handlebars',
                 language: 'english',
                 favicon: './images/favicon.ico',
                 env: process.env,
                 excludeAssets: [/css\/?.*\.js?\?.*/]
             }),
+            // new HtmlWebpackPlugin({
+            //     filename: 'pt/index.html',
+            //     template: 'views/index.handlebars',
+            //     language: 'portuguese',
+            //     favicon: './images/favicon.ico',
+            //     env: process.env,
+            //     excludeAssets: [/css\/?.*\.js?\?.*/]
+            // }),
             new HtmlWebpackExcludeAssetsPlugin(),
             new ExtractTextPlugin({
                 filename: '[name].css?[contenthash]',
