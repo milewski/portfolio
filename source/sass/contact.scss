@@ -2,7 +2,7 @@
   font-size: 2em;
   font-weight: normal;
   color: darken($white, 60);
-  padding-bottom: 4em;
+  //padding-bottom: 4em;
 
   @include breakpoint($mobile) {
     font-size: 1.4em;

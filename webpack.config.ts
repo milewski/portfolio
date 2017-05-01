@@ -3,6 +3,7 @@ import * as HtmlWebpackPlugin from 'html-webpack-plugin';
 import * as CleanWebpackPlugin from 'clean-webpack-plugin';
 import * as ExtractTextPlugin from 'extract-text-webpack-plugin';
 import * as HtmlWebpackExcludeAssetsPlugin from 'html-webpack-exclude-assets-plugin';
+import * as StyleExtHtmlWebpackPlugin from 'style-ext-html-webpack-plugin';
 import * as dot from 'dotenv';
 import * as path from 'path';
 import { parseDomain } from "./helpers";
@@ -20,6 +21,8 @@ export default () => {
         entry: {
             'js/main': './typescript/Main.ts',
             'css/app': './sass/main.scss',
+
+            'css/iframe-portfolio': './sass/iframe-portfolio.scss'
         },
         output: {
             publicPath: parseDomain(process.env),
@@ -45,13 +48,13 @@ export default () => {
                     }
                 },
 
-                {
-                    test: /\.pdf$/,
-                    loader: 'file-loader',
-                    options: {
-                        name: 'pdf/[name].[ext]'
-                    }
-                },
+                // {
+                //     test: /\.pdf$/,
+                //     loader: 'file-loader',
+                //     options: {
+                //         name: 'pdf/[name].[ext]'
+                //     }
+                // },
 
                 {
                     test: /\.s?css$/,
@@ -67,7 +70,7 @@ export default () => {
                 },
                 {
                     test: /\.(jpg|png|gif|svg)$/,
-                    exclude: /fonts/,
+                    exclude: [/fonts/, /pdf/],
                     use: [
                         {
                             loader: 'file-loader',
@@ -99,26 +102,28 @@ export default () => {
                     ],
                 },
                 {
-                    test: function (a, b) {
-                        console.log(a)
-                    },
+                    // test: /pdf?.*\.(jpg|png)$/,
+                    test: /\.pdf$/,
                     use: [
-                        {
-                            loader: 'file-loader',
-                            options: {
-                                name: 'images/small/[name]-small.[ext]'
-                            }
-                        },
+                        // {
+                        //     loader: 'file-loader',
+                        //     options: {
+                        //         name: '[path]/[name]-small.[ext]?[hash]'
+                        //     }
+                        // },
                         {
                             loader: 'bin-exec-loader',
                             options: {
                                 binary: 'convert',
                                 prefix: '-',
-                                export: false,
-                                emitFile: false,
+                                export: true,
+                                emitFile: /\.jpg$/,
+                                multiple: true,
+                                name: 'images/pdf/[name].jpg',
                                 args: {
                                     $1: '[input]',
-                                    resize: '[resize]',
+                                    // resize: '[resize]',
+                                    // resize: '50%',
                                     $2: '[output]'
                                 }
                             }
@@ -152,20 +157,35 @@ export default () => {
                 env: process.env,
                 excludeAssets: [/css\/?.*\.js?\?.*/]
             }),
+            new HtmlWebpackPlugin({
+                filename: 'pt/index.html',
+                template: 'views/index.handlebars',
+                language: 'portuguese',
+                favicon: './images/favicon.ico',
+                env: process.env,
+                excludeAssets: [/css\/?.*\.js?\?.*/]
+            }),
+
+            //** Portfolio
             // new HtmlWebpackPlugin({
-            //     filename: 'pt/index.html',
-            //     template: 'views/index.handlebars',
-            //     language: 'portuguese',
+            //     filename: 'portfolio/inspire.html',
+            //     template: 'views/portfolio/inspire.handlebars',
             //     favicon: './images/favicon.ico',
+            //     chunks: ['css/iframe-portfolio'],
             //     env: process.env,
             //     excludeAssets: [/css\/?.*\.js?\?.*/]
             // }),
+
             new HtmlWebpackExcludeAssetsPlugin(),
             new ExtractTextPlugin({
                 filename: '[name].css?[contenthash]',
                 allChunks: true
             }),
-            new webpack.optimize.UglifyJsPlugin()
+            new webpack.optimize.UglifyJsPlugin(),
+            new StyleExtHtmlWebpackPlugin({
+                cssRegExp: /css\/?.*\.css?\?.*/,
+                chunks: ['css/iframe-portfolio']
+            }),
         ]
     }
 }

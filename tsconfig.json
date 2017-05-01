@@ -4,7 +4,8 @@
     "target": "es6",
     "sourceMap": true,
     "types": [
-      "node"
+      "node",
+      "webpack-env"
     ]
   },
   "exclude": [

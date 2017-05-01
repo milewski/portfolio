@@ -1,0 +1,12 @@
+$black: black;
+$white: white;
+$primary: #d2ff00;
+
+//$mobile: (width 320px 900px) (orientation portrait);
+$mobile: (width 320px 1024px);
+$tablet: (width 768px 1024px);
+$csstyle-root-id: portfolio;
+
+@import "~csstyle/csstyle";
+@import "~breakpoint-sass";
+

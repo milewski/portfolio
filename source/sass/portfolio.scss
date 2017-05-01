@@ -10,32 +10,42 @@
     white-space: nowrap;
   }
 
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($mobile) {
+    display: block;
+    flex-wrap: nowrap;
+  }
+
   li {
 
-    display: inline-block;
+    flex-grow: 1;
     position: relative;
     width: auto;
     height: 10em;
     cursor: pointer;
 
     transition-duration: .1s;
-    transition-property: filter, transform, border;
-    will-change: filter, transform, border;
+    transition-property: filter, transform;
+    will-change: filter, transform;
 
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    border: 3px solid transparent;
+    background-color: lighten($primary, 40);
+
+    border: 3px solid $primary;
     filter: grayscale(100%);
 
     &:hover {
       transform: scale(1.4);
-      border: 3px solid $primary;
       z-index: 10;
       position: relative;
       filter: none;
       width: 10em;
       height: 10em;
+      background-size: contain;
     }
 
     &:active {
@@ -44,7 +54,7 @@
 
     @include breakpoint($mobile) {
       max-width: 100%;
-      font-size: 2em;
+      display: inline-block;
 
       &:active {
         transform: none;
@@ -136,4 +146,13 @@
 
   }
 
+}
+
+@include component(portfolio-gallery) {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  img {
+    width: 100%;
+  }
 }
