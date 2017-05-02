@@ -14,6 +14,7 @@ $csstyle-root-id: portfolio;
 @import "../fonts/Roboto/stylesheet.css";
 
 @import "components/dom";
+@import "components/main";
 @import "components/nav";
 @import "components/canvas";
 @import "components/box";
@@ -21,7 +22,13 @@ $csstyle-root-id: portfolio;
 @import "components/timeline";
 @import "components/contact";
 @import "components/portfolio";
+@import "components/portfolio-gallery";
 @import "components/id";
 @import "components/tweeks";
 
 @include breakpoint-set('to ems', true);
+
+/** Let it scroll */
+.pswp__item {
+  overflow-y: scroll;
+}
