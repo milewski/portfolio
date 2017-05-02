@@ -1,22 +1,3 @@
-@import "config";
-
-@import "~photoswipe/dist/photoswipe";
-@import "~photoswipe/dist/default-skin/default-skin";
-@import "../fonts/Roboto/stylesheet.css";
-
-@import "dom";
-@import "nav";
-@import "canvas";
-@import "box";
-@import "container";
-@import "timeline";
-@import "contact";
-@import "portfolio";
-@import "id";
-@import "tweeks";
-
-@include breakpoint-set('to ems', true);
-
 @include component(main) {
 
   display: flex;

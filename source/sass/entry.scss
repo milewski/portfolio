@@ -1,0 +1,27 @@
+$black: black;
+$white: white;
+$primary: #d2ff00;
+
+$mobile: (width 320px 1024px);
+$tablet: (width 768px 1024px);
+$csstyle-root-id: portfolio;
+
+@import "~csstyle/csstyle";
+@import "~breakpoint-sass";
+
+@import "~photoswipe/dist/photoswipe";
+@import "~photoswipe/dist/default-skin/default-skin";
+@import "../fonts/Roboto/stylesheet.css";
+
+@import "components/dom";
+@import "components/nav";
+@import "components/canvas";
+@import "components/box";
+@import "components/container";
+@import "components/timeline";
+@import "components/contact";
+@import "components/portfolio";
+@import "components/id";
+@import "components/tweeks";
+
+@include breakpoint-set('to ems', true);
