@@ -1,0 +1,24 @@
+@include component(contact) {
+  font-size: 2em;
+  font-weight: normal;
+  color: darken($white, 60);
+  //padding-bottom: 4em;
+
+  @include breakpoint($mobile) {
+    font-size: 1.4em;
+    margin-bottom: 3em;
+  }
+
+  span {
+    color: $white;
+  }
+
+  a {
+    text-decoration: none;
+    &:hover {
+      color: $primary;
+      padding-bottom: .3em;
+      border-bottom: 1px dashed $primary;
+    }
+  }
+}

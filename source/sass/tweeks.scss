@@ -1,5 +1,0 @@
-@include tweak(hidden-on-mobile) {
-  @include breakpoint($mobile) {
-    display: none;
-  }
-}

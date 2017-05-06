@@ -1,0 +1,8 @@
+#work {
+  h1 {
+    @include breakpoint($mobile) {
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+  }
+}

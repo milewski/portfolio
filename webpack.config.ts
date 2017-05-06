@@ -20,9 +20,7 @@ export default () => {
         context: context,
         entry: {
             'js/main': './typescript/Main.ts',
-            'css/app': './sass/main.scss',
-
-            'css/iframe-portfolio': './sass/iframe-portfolio.scss'
+            'css/app': './sass/entry.scss'
         },
         output: {
             publicPath: parseDomain(process.env),

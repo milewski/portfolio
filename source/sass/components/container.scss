@@ -1,0 +1,25 @@
+@include component(container) {
+
+  width: 70%;
+  margin: 2em auto 10em;
+  position: relative;
+  z-index:10;
+
+  @include breakpoint($mobile) {
+    width: 80%;
+    text-align: center;
+    margin: 2em auto 2em;
+  }
+
+  & > h1 {
+    margin-bottom: 1em;
+    text-transform: capitalize;
+  }
+
+  @include option(fluid-on-mobile){
+    @include breakpoint($mobile) {
+      width: 100%;
+    }
+  }
+
+}

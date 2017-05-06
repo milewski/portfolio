@@ -1,0 +1,158 @@
+@include component(portfolio) {
+
+  list-style: none;
+  padding: 0;
+  user-select: none;
+  margin: 0;
+
+  @include breakpoint($mobile) {
+    overflow-x: scroll;
+    white-space: nowrap;
+  }
+
+  display: flex;
+  flex-wrap: wrap;
+
+  @include breakpoint($mobile) {
+    display: block;
+    flex-wrap: nowrap;
+  }
+
+  li {
+
+    flex-grow: 1;
+    position: relative;
+    width: auto;
+    height: 10em;
+    cursor: pointer;
+
+    transition-duration: .1s;
+    transition-property: filter, transform;
+    will-change: filter, transform;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-color: lighten($primary, 40);
+
+    border: 3px solid $primary;
+    filter: grayscale(100%);
+
+    &:hover {
+      transform: scale(1.4);
+      z-index: 10;
+      position: relative;
+      filter: none;
+      width: 10em;
+      height: 10em;
+      background-size: contain;
+    }
+
+    &:active {
+      transform: scale(1.2);
+    }
+
+    @include breakpoint($mobile) {
+      max-width: 100%;
+      display: inline-block;
+
+      &:active {
+        transform: none;
+      }
+
+      &:hover {
+        transform: none;
+      }
+
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 10;
+      left: 0;
+    }
+
+    @include option(fest-up) {
+      background-image: url("../images/portfolio/festup-poster.jpg");
+      width: 7em;
+    }
+
+    @include option(inspire) {
+      background-image: url("../images/portfolio/inspire.jpg");
+      width: 25em;
+    }
+
+    @include option(english-kids) {
+      background-image: url("../images/portfolio/english-kids.jpg");
+      width: 15em;
+    }
+
+    @include option(instintos-crueis) {
+      background-image: url("../images/portfolio/instintos-crueis.jpg");
+      width: 8em;
+    }
+
+    @include option(frost-bite) {
+      background-image: url("../images/portfolio/frost-bite.jpg");
+      width: 8em;
+    }
+
+    @include option(present-at-the-creation) {
+      background-image: url("../images/portfolio/present-at-the-creation.jpg");
+      width: 8em;
+    }
+
+    @include option(sabonete-natura) {
+      background-image: url("../images/portfolio/sabonete-natura.jpg");
+      width: 10em;
+    }
+
+    @include option(chocolate-nestle) {
+      background-image: url("../images/portfolio/chocolate-nestle.jpg");
+      width: 12em;
+    }
+
+    @include option(cha-leao) {
+      background-image: url("../images/portfolio/cha-leao.jpg");
+      width: 12em;
+    }
+
+    @include option(ferrero-rocher) {
+      background-image: url("../images/portfolio/ferrero-rocher.jpg");
+      width: 12em;
+    }
+
+    @include option(maxton) {
+      background-image: url("../images/portfolio/maxton.jpg");
+      width: 5em;
+    }
+
+    @include option(trip-airlines) {
+      background-image: url("../images/portfolio/trip-airlines.jpg");
+      width: 13em;
+    }
+
+    @include option(faber-castell) {
+      background-image: url("../images/portfolio/faber-castell.jpg");
+      width: 15em;
+    }
+
+    @include option(colgate) {
+      background-image: url("../images/portfolio/colgate.jpg");
+      width: 8em;
+    }
+
+  }
+
+}
+
+@include component(portfolio-gallery) {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+  img {
+    width: 100%;
+  }
+}
