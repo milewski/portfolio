@@ -14,6 +14,8 @@ export class Gallery {
     };
 
     private resources = {
+        'monster-rally': 'http://monster-rally.skysoul.com.au',
+        'last-minute-table': 'http://www.lastminutetable.co.nz',
         'inspire': require('../../images/pdf/magazine-inspire.pdf?resize=2000'),
         'faber-castell': require('../../images/pdf/catalogue-faber-castell.pdf?resize=2000'),
         'instintos-crueis': require('../../images/pdf/book-instintos-crueis.pdf?resize=2000'),
@@ -41,6 +43,10 @@ export class Gallery {
             const item = (target as HTMLLIElement).getAttribute('data-id');
 
             let resources = this.resources[item];
+
+            if (typeof resources === 'string') {
+                return window.open(resources, '_blank')
+            }
 
             if (resources instanceof Array) {
                 resources = this.paginate(resources)

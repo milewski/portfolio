@@ -1,151 +1,235 @@
 @include component(portfolio) {
 
-  list-style: none;
-  padding: 0;
   user-select: none;
-  margin: 0;
 
-  @include breakpoint($mobile) {
-    overflow-x: scroll;
-    white-space: nowrap;
-  }
+  @include part(elements) {
 
-  display: flex;
-  flex-wrap: wrap;
-
-  @include breakpoint($mobile) {
-    display: block;
-    flex-wrap: nowrap;
-  }
-
-  li {
-
-    flex-grow: 1;
-    position: relative;
-    width: auto;
-    height: 10em;
-    cursor: pointer;
-
-    transition-duration: .1s;
-    transition-property: filter, transform;
-    will-change: filter, transform;
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
-    background-color: lighten($primary, 40);
-
-    border: 3px solid $primary;
-    filter: grayscale(100%);
-
-    &:last-child {
-      flex-grow: initial;
-    }
-
-    &:hover {
-      transform: scale(1.4);
-      z-index: 10;
-      position: relative;
-      filter: none;
-      width: 10em;
-      height: 10em;
-      background-size: cover;
-    }
-
-    &:active {
-      transform: scale(1.2);
-    }
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
     @include breakpoint($mobile) {
-      max-width: 100%;
-      display: inline-block;
+      overflow-x: scroll;
+      white-space: nowrap;
+    }
 
-      &:active {
-        transform: none;
+    display: flex;
+    flex-wrap: wrap;
+
+    @include breakpoint($mobile) {
+      display: block;
+      flex-wrap: nowrap;
+    }
+
+    li {
+
+      flex-grow: 1;
+      position: relative;
+      width: auto;
+      height: 10em;
+      cursor: pointer;
+
+      transition-duration: .1s;
+      transition-property: filter, transform, opacity;
+      will-change: filter, transform, opacity;
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      background-color: lighten($primary, 40);
+
+      border: 3px solid $primary;
+      filter: grayscale(100%);
+
+      &:last-child {
+        flex-grow: initial;
       }
 
       &:hover {
-        transform: none;
+        transform: scale(1.4);
+        z-index: 10;
+        position: relative;
+        filter: none;
+        width: 10em;
+        height: 10em;
+        background-size: cover;
+      }
+
+      &:active {
+        transform: scale(1.2);
+      }
+
+      @include breakpoint($mobile) {
+        max-width: 100%;
+        display: inline-block;
+
+        &:active {
+          transform: none;
+        }
+
+        &:hover {
+          transform: none;
+        }
+
+      }
+
+      a {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 10;
+        left: 0;
+      }
+
+      @include option(monster-rally) {
+        background-image: url("../../images/portfolio/monster-rally.jpg");
+        width: 10em;
+      }
+
+      @include option(last-minute-table) {
+        background-image: url("../../images/portfolio/last-minute-table.jpg");
+        width: 20em;
+      }
+
+      @include option(festup) {
+        background-image: url("../../images/portfolio/festup-poster.jpg");
+        width: 7em;
+      }
+
+      @include option(inspire) {
+        background-image: url("../../images/portfolio/inspire.jpg");
+        width: 25em;
+      }
+
+      @include option(english-kids) {
+        background-image: url("../../images/portfolio/english-kids.jpg");
+        width: 15em;
+      }
+
+      @include option(instintos-crueis) {
+        background-image: url("../../images/portfolio/instintos-crueis.jpg");
+        width: 8em;
+      }
+
+      @include option(frost-bite) {
+        background-image: url("../../images/portfolio/frost-bite.jpg");
+        width: 8em;
+      }
+
+      @include option(present-at-the-creation) {
+        background-image: url("../../images/portfolio/present-at-the-creation.jpg");
+        width: 8em;
+      }
+
+      @include option(sabonete-natura) {
+        background-image: url("../../images/portfolio/sabonete-natura.jpg");
+        width: 10em;
+      }
+
+      @include option(chocolate-nestle) {
+        background-image: url("../../images/portfolio/chocolate-nestle.jpg");
+        width: 12em;
+      }
+
+      @include option(cha-leao) {
+        background-image: url("../../images/portfolio/cha-leao.jpg");
+        width: 12em;
+      }
+
+      @include option(ferrero-rocher) {
+        background-image: url("../../images/portfolio/ferrero-rocher.jpg");
+        width: 12em;
+      }
+
+      @include option(maxton) {
+        background-image: url("../../images/portfolio/maxton.jpg");
+        width: 5em;
+      }
+
+      @include option(trip-airlines) {
+        background-image: url("../../images/portfolio/trip-airlines.jpg");
+        width: 13em;
+      }
+
+      @include option(faber-castell) {
+        background-image: url("../../images/portfolio/faber-castell.jpg");
+        width: 15em;
+      }
+
+      @include option(colgate) {
+        background-image: url("../../images/portfolio/colgate.jpg");
+        width: 8em;
       }
 
     }
 
-    a {
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      z-index: 10;
-      left: 0;
+  }
+
+  label {
+
+    color: $white;
+    font-size: 1.2em;
+    opacity: .4;
+
+    display: inline-block;
+    padding: .3em .3em 1em;
+    cursor: pointer;
+    border-bottom: .3em solid transparent;
+
+    @include breakpoint($mobile) {
+      white-space: nowrap;
+      overflow-x: scroll;
     }
 
-    @include option(festup) {
-      background-image: url("../../images/portfolio/festup-poster.jpg");
-      width: 7em;
+    &:hover {
+      color: $primary;
+      opacity: 1;
     }
 
-    @include option(inspire) {
-      background-image: url("../../images/portfolio/inspire.jpg");
-      width: 25em;
+    &:first-of-type {
+      padding-left: 0;
     }
 
-    @include option(english-kids) {
-      background-image: url("../../images/portfolio/english-kids.jpg");
-      width: 15em;
+  }
+
+  input {
+
+    display: none;
+
+    $types: website, graphic-design, packing;
+
+    @each $type in $types {
+
+      @include option($type) {
+
+        &:checked ~ ul li:not([data-type=#{$type}]) {
+
+          opacity: .1;
+          pointer-events: none;
+
+          @include breakpoint($mobile) {
+            display: none;
+          }
+
+        }
+
+        &:checked ~ label[for=#{$type}] {
+          color: $primary;
+          opacity: 1;
+          border-bottom-color: $primary;
+        }
+
+      }
+
     }
 
-    @include option(instintos-crueis) {
-      background-image: url("../../images/portfolio/instintos-crueis.jpg");
-      width: 8em;
-    }
+    @include option(all) {
 
-    @include option(frost-bite) {
-      background-image: url("../../images/portfolio/frost-bite.jpg");
-      width: 8em;
-    }
+      &:checked ~ label[for=all] {
+        color: $primary;
+        opacity: 1;
+      }
 
-    @include option(present-at-the-creation) {
-      background-image: url("../../images/portfolio/present-at-the-creation.jpg");
-      width: 8em;
-    }
-
-    @include option(sabonete-natura) {
-      background-image: url("../../images/portfolio/sabonete-natura.jpg");
-      width: 10em;
-    }
-
-    @include option(chocolate-nestle) {
-      background-image: url("../../images/portfolio/chocolate-nestle.jpg");
-      width: 12em;
-    }
-
-    @include option(cha-leao) {
-      background-image: url("../../images/portfolio/cha-leao.jpg");
-      width: 12em;
-    }
-
-    @include option(ferrero-rocher) {
-      background-image: url("../../images/portfolio/ferrero-rocher.jpg");
-      width: 12em;
-    }
-
-    @include option(maxton) {
-      background-image: url("../../images/portfolio/maxton.jpg");
-      width: 5em;
-    }
-
-    @include option(trip-airlines) {
-      background-image: url("../../images/portfolio/trip-airlines.jpg");
-      width: 13em;
-    }
-
-    @include option(faber-castell) {
-      background-image: url("../../images/portfolio/faber-castell.jpg");
-      width: 15em;
-    }
-
-    @include option(colgate) {
-      background-image: url("../../images/portfolio/colgate.jpg");
-      width: 8em;
     }
 
   }

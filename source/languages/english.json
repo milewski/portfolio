@@ -13,21 +13,77 @@
   "header": "I’m a Full Stack Developer",
   "description": "who focuses on writing clean, elegant and maintainable code.",
   "me": "me",
+  "categories": {
+    "all": "All",
+    "website": "Website",
+    "graphic-design": "Graphic Design",
+    "packing": "Packing"
+  },
   "portfolio": [
-    "inspire",
-    "faber-castell",
-    "festup",
-    "colgate",
-    "instintos-crueis",
-    "present-at-the-creation",
-    "frost-bite",
-    "english-kids",
-    "trip-airlines",
-    "cha-leao",
-    "maxton",
-    "chocolate-nestle",
-    "sabonete-natura",
-    "ferrero-rocher"
+    {
+      "key": "monster-rally",
+      "type": "website"
+    },
+    {
+      "key": "last-minute-table",
+      "type": "website"
+    },
+    {
+      "key": "inspire",
+      "type": "graphic-design"
+    },
+    {
+      "key": "faber-castell",
+      "type": "graphic-design"
+    },
+    {
+      "key": "festup",
+      "type": "graphic-design"
+    },
+    {
+      "key": "colgate",
+      "type": "graphic-design"
+    },
+    {
+      "key": "instintos-crueis",
+      "type": "graphic-design"
+    },
+    {
+      "key": "present-at-the-creation",
+      "type": "graphic-design"
+    },
+    {
+      "key": "frost-bite",
+      "type": "graphic-design"
+    },
+    {
+      "key": "english-kids",
+      "type": "graphic-design"
+    },
+    {
+      "key": "trip-airlines",
+      "type": "graphic-design"
+    },
+    {
+      "key": "cha-leao",
+      "type": "packing"
+    },
+    {
+      "key": "maxton",
+      "type": "packing"
+    },
+    {
+      "key": "chocolate-nestle",
+      "type": "packing"
+    },
+    {
+      "key": "sabonete-natura",
+      "type": "packing"
+    },
+    {
+      "key": "ferrero-rocher",
+      "type": "packing"
+    }
   ],
   "social": {
     "title": "Rafael Milewski - Personal Portfolio",

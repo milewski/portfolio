@@ -90,13 +90,25 @@
 
         <h1>{{ work-header }}</h1>
 
-        <ul class="portfolio">
+        <div class="portfolio">
 
-            {{#each portfolio }}
-                <li class="li --{{ this }}" data-id="{{ this }}"></li>
+            {{#each categories }}
+                <input type="radio" name="items" id="{{ @key }}" class="--{{ @key }}"{{#if @first }} checked{{/if}}/>
             {{/each}}
 
-        </ul>
+            {{#each categories }}
+                <label for="{{ @key }}" data-type="{{ @key }}">{{ this }}</label>
+            {{/each}}
+
+            <ul class="portfolio__elements">
+
+                {{#each portfolio }}
+                    <li class="li --{{ this.key }}" data-id="{{ this.key }}" data-type="{{ this.type }}"></li>
+                {{/each}}
+
+            </ul>
+
+        </div>
 
     </section>
 
