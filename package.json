@@ -2,7 +2,6 @@
   "name": "portfolio",
   "version": "1.0.0",
   "description": "My Personal portfolio http://rafael-milewski.com",
-  "main": "",
   "scripts": {
     "build": "tsc && webpack",
     "serve": "cross-os serve"
@@ -25,7 +24,7 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-preset-es2015": "^6.24.1",
-    "bin-exec-loader": "^1.1.0",
+    "bin-exec-loader": "^1.3.1",
     "breakpoint-sass": "^2.7.1",
     "clean-webpack-plugin": "^0.1.16",
     "cross-os": "^1.1.2",
@@ -50,7 +49,6 @@
     "raf": "^3.3.0",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
-    "style-ext-html-webpack-plugin": "^3.4.1",
     "style-loader": "^0.16.1",
     "typescript": "^2.2.2",
     "webpack": "^2.4.1"

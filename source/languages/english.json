@@ -1,6 +1,10 @@
 {
   "language": "en",
   "title": "Rafael Milewski - Full Stack Developer",
+  "source": {
+    "description": "If you are looking for the source code, you can find it here:",
+    "url": "https://github.com/milewski/portfolio"
+  },
   "resume": "resume",
   "experience": "experience",
   "work": "work",
@@ -9,6 +13,22 @@
   "header": "I’m a Full Stack Developer",
   "description": "who focuses on writing clean, elegant and maintainable code.",
   "me": "me",
+  "portfolio": [
+    "inspire",
+    "faber-castell",
+    "festup",
+    "colgate",
+    "instintos-crueis",
+    "present-at-the-creation",
+    "frost-bite",
+    "english-kids",
+    "trip-airlines",
+    "cha-leao",
+    "maxton",
+    "chocolate-nestle",
+    "sabonete-natura",
+    "ferrero-rocher"
+  ],
   "social": {
     "title": "Rafael Milewski - Personal Portfolio",
     "description": "I'm a web Frontend/Backend Developer. Check out my latest work :)"

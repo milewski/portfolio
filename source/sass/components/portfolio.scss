@@ -38,6 +38,10 @@
     border: 3px solid $primary;
     filter: grayscale(100%);
 
+    &:last-child {
+      flex-grow: initial;
+    }
+
     &:hover {
       transform: scale(1.4);
       z-index: 10;
@@ -45,7 +49,7 @@
       filter: none;
       width: 10em;
       height: 10em;
-      background-size: contain;
+      background-size: cover;
     }
 
     &:active {
@@ -74,73 +78,73 @@
       left: 0;
     }
 
-    @include option(fest-up) {
-      background-image: url("../images/portfolio/festup-poster.jpg");
+    @include option(festup) {
+      background-image: url("../../images/portfolio/festup-poster.jpg");
       width: 7em;
     }
 
     @include option(inspire) {
-      background-image: url("../images/portfolio/inspire.jpg");
+      background-image: url("../../images/portfolio/inspire.jpg");
       width: 25em;
     }
 
     @include option(english-kids) {
-      background-image: url("../images/portfolio/english-kids.jpg");
+      background-image: url("../../images/portfolio/english-kids.jpg");
       width: 15em;
     }
 
     @include option(instintos-crueis) {
-      background-image: url("../images/portfolio/instintos-crueis.jpg");
+      background-image: url("../../images/portfolio/instintos-crueis.jpg");
       width: 8em;
     }
 
     @include option(frost-bite) {
-      background-image: url("../images/portfolio/frost-bite.jpg");
+      background-image: url("../../images/portfolio/frost-bite.jpg");
       width: 8em;
     }
 
     @include option(present-at-the-creation) {
-      background-image: url("../images/portfolio/present-at-the-creation.jpg");
+      background-image: url("../../images/portfolio/present-at-the-creation.jpg");
       width: 8em;
     }
 
     @include option(sabonete-natura) {
-      background-image: url("../images/portfolio/sabonete-natura.jpg");
+      background-image: url("../../images/portfolio/sabonete-natura.jpg");
       width: 10em;
     }
 
     @include option(chocolate-nestle) {
-      background-image: url("../images/portfolio/chocolate-nestle.jpg");
+      background-image: url("../../images/portfolio/chocolate-nestle.jpg");
       width: 12em;
     }
 
     @include option(cha-leao) {
-      background-image: url("../images/portfolio/cha-leao.jpg");
+      background-image: url("../../images/portfolio/cha-leao.jpg");
       width: 12em;
     }
 
     @include option(ferrero-rocher) {
-      background-image: url("../images/portfolio/ferrero-rocher.jpg");
+      background-image: url("../../images/portfolio/ferrero-rocher.jpg");
       width: 12em;
     }
 
     @include option(maxton) {
-      background-image: url("../images/portfolio/maxton.jpg");
+      background-image: url("../../images/portfolio/maxton.jpg");
       width: 5em;
     }
 
     @include option(trip-airlines) {
-      background-image: url("../images/portfolio/trip-airlines.jpg");
+      background-image: url("../../images/portfolio/trip-airlines.jpg");
       width: 13em;
     }
 
     @include option(faber-castell) {
-      background-image: url("../images/portfolio/faber-castell.jpg");
+      background-image: url("../../images/portfolio/faber-castell.jpg");
       width: 15em;
     }
 
     @include option(colgate) {
-      background-image: url("../images/portfolio/colgate.jpg");
+      background-image: url("../../images/portfolio/colgate.jpg");
       width: 8em;
     }
 
